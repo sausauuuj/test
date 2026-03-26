@@ -1,0 +1,165 @@
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/_context.php';
+
+?>
+<section id="reports" class="app-view" data-view="reports">
+    <div class="view-scroll section-stack">
+        <div class="section-head">
+            <h2 class="section-title">Reports</h2>
+        </div>
+
+        <article class="reports-hero-shell">
+            <div class="report-type-grid report-type-grid--feature">
+                <button type="button" class="report-type-card" data-report-type="PAR">
+                    <span class="report-type-card__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3.5h6l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 20V5A1.5 1.5 0 0 1 7.5 3.5H8Z"></path>
+                            <path d="M14 3.5V8h4"></path>
+                            <path d="M9 11h6"></path>
+                            <path d="M9 15h6"></path>
+                        </svg>
+                    </span>
+                    <span class="report-type-card__code">PAR</span>
+                    <span class="report-type-card__title">Property Acknowledgement Receipt</span>
+                    <span class="report-type-card__cta">Generate
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 6 6 6-6 6"></path>
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="report-type-card" data-report-type="SPI">
+                    <span class="report-type-card__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3.5h6l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 20V5A1.5 1.5 0 0 1 7.5 3.5H8Z"></path>
+                            <path d="M14 3.5V8h4"></path>
+                            <path d="M9 11h6"></path>
+                            <path d="M9 15h6"></path>
+                        </svg>
+                    </span>
+                    <span class="report-type-card__code">SPI</span>
+                    <span class="report-type-card__title">Semi-Expendable Property Issued</span>
+                    <span class="report-type-card__cta">Generate
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 6 6 6-6 6"></path>
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="report-type-card" data-report-type="ICS">
+                    <span class="report-type-card__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3.5h6l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 20V5A1.5 1.5 0 0 1 7.5 3.5H8Z"></path>
+                            <path d="M14 3.5V8h4"></path>
+                            <path d="M9 11h6"></path>
+                            <path d="M9 15h6"></path>
+                        </svg>
+                    </span>
+                    <span class="report-type-card__code">ICS</span>
+                    <span class="report-type-card__title">Inventory Custodian Slip</span>
+                    <span class="report-type-card__cta">Generate
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 6 6 6-6 6"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </article>
+
+        <div id="reportWorkflowArea" class="report-workspace hidden">
+            <div id="reportSelectionHint" class="toolbar-note">Select PAR, SPI, or ICS to begin.</div>
+
+            <article id="parReportPanel" class="panel-card hidden">
+                <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                        <p class="panel-eyebrow">PAR Workflow</p>
+                        <h3 class="panel-title">PAR Generation</h3>
+                    </div>
+                </div>
+
+                <div class="mt-5 space-y-4">
+                    <div class="form-block report-step">
+                        <p class="form-block__label report-step__title">Step 1: Select Division & Officer</p>
+                        <div class="mt-4 grid gap-4 lg:grid-cols-2">
+                            <label class="form-group">
+                                <span class="form-label">Division</span>
+                                <select id="reportDivision" class="form-input">
+                                    <option value="">Select division</option>
+                                    <option value="FAD">FAD (Finance and Administrative Division)</option>
+                                    <option value="PDIPBD">PDIPBD (Project Development, Investment Programming, and Budgeting Division)</option>
+                                    <option value="PFPD">PFPD (Policy Formulation and Planning Division)</option>
+                                    <option value="PMED">PMED (Project Monitoring and Evaluation Division)</option>
+                                    <option value="DRD">DRD (Development Research Division)</option>
+                                </select>
+                            </label>
+                            <label id="reportOfficerField" class="form-group hidden">
+                                <span class="form-label">Accountable Officer</span>
+                                <select id="reportOfficerSelect" class="form-input" disabled>
+                                    <option value="">Select division</option>
+                                </select>
+                            </label>
+                        </div>
+                        <p id="reportOfficerHint" class="mt-3 text-sm text-slate-500">Choose a division to load officers.</p>
+                        <div class="mt-3 flex flex-wrap gap-3">
+                            <button id="clearOfficerSelection" type="button" class="action-secondary">Clear Officer</button>
+                        </div>
+                    </div>
+
+                    <div class="form-block report-step">
+                        <p class="form-block__label report-step__title">Step 2: Review Related Data</p>
+                        <div class="mt-4 report-preview-card">
+                            <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                                
+                                <span id="relatedDataMeta" class="status-pill">0 matched</span>
+                            </div>
+                            <div id="relatedDataSummary" class="mt-4 grid gap-3 sm:grid-cols-3"></div>
+                            <div class="mt-5 overflow-hidden rounded-[1rem] border border-slate-200 bg-white view-table-shell">
+                                <div class="view-table-scroll">
+                                    <table class="min-w-full divide-y divide-slate-200 text-sm report-preview-table">
+                                        <thead class="bg-slate-50 text-left text-slate-500">
+                                            <tr>
+                                                <th class="px-4 py-3 font-medium">PAR No.</th>
+                                                <th class="px-4 py-3 font-medium">PAR Date</th>
+                                                <th class="px-4 py-3 font-medium">Property</th>
+                                                <th class="px-4 py-3 font-medium">Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="relatedDataTableBody" class="divide-y divide-slate-100 bg-white"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-block report-step">
+                        <p class="form-block__label report-step__title">Step 3: Generate Report</p>
+                        <form id="reportForm" class="mt-4 space-y-4">
+                            <input type="hidden" name="report_type" value="PAR">
+                            <input type="hidden" id="selectedOfficerId" name="officer_id" value="">
+                            <input type="hidden" id="selectedOfficer" name="officer_name" value="">
+                            <input type="hidden" id="selectedDivision" name="division" value="">
+                            <div class="flex flex-wrap items-center gap-3">
+                                <button type="submit" class="action-primary">Generate PAR Report</button>
+                                <button id="printReport" type="button" class="action-secondary" disabled>Print PAR Report</button>
+                                <button id="exportReportCsv" type="button" class="action-secondary" disabled>Export CSV</button>
+                                <button id="resetReportFilters" type="button" class="action-secondary">Reset Workflow</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </article>
+
+            <article id="reportPreviewPanel" class="panel-card view-fill-card print-panel">
+                <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                        <p class="panel-eyebrow">Generated Output</p>
+                        <h3 class="panel-title">Report preview</h3>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3"><span id="reportMeta" class="status-pill">No report</span></div>
+                </div>
+                <div id="reportContainer" class="mt-6"><div class="report-empty-state">Select PAR and an accountable officer to begin.</div></div>
+            </article>
+        </div>
+    </div>
+</section>
