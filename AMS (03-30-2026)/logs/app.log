@@ -1,0 +1,45 @@
+[2026-03-23 15:48:02] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:02] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:03] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:24] ERROR: Unable to create officer. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:27] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:32] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:33] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:34] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:34] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:30] ERROR: Unable to add assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:45:40] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:45:41] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:01] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:02] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:04] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:04] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:09] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:09] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:10] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 21:25:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:05] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-26 21:25:05] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-26 21:25:14] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:15] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
