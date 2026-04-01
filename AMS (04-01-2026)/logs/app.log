@@ -1,0 +1,103 @@
+[2026-03-23 15:48:02] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:02] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:03] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:24] ERROR: Unable to create officer. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:27] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:32] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:33] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:34] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:34] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:30] ERROR: Unable to add assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:45:40] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:45:41] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:01] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:02] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:04] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:04] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:09] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:09] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:10] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 21:25:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:05] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-26 21:25:05] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-26 21:25:14] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:15] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-31 06:46:08] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:10] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:12] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:14] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:16] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:18] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:21] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:23] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:25] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:27] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:29] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:31] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:48:19] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:19] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:21] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:21] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:22] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:23] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:44] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:44] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:59] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:59] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:52:29] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:52:29] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:52:30] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:52:31] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:03] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:03] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:06] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:06] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 07:08:22] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:23] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:28] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:29] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:29] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:30] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:32] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:32] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:11] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:11] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:12] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:12] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:56] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:57] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:57] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:57] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
