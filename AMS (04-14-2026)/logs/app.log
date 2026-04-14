@@ -1,0 +1,259 @@
+[2026-03-23 15:48:02] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:02] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:03] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:48:24] ERROR: Unable to create officer. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:11] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:27] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:32] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:33] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:34] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:53:34] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:05] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:55:30] ERROR: Unable to add assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-23 15:56:23] ERROR: Unable to generate report. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:45:40] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:45:41] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:01] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:02] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:03] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:04] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:04] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:05] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:08] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:09] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:09] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 20:46:10] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-26 21:25:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:05] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-26 21:25:05] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-26 21:25:14] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-26 21:25:15] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ao.position' in 'field list'"}
+[2026-03-31 06:46:08] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:10] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:12] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:14] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:16] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:18] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:21] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:23] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:25] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:27] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:29] ERROR: Unable to load chart data. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:46:31] ERROR: Unable to load officers. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-03-31 06:48:19] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:19] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:21] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:21] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:22] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:23] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:48:44] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:44] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:59] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:48:59] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:52:29] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:52:29] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:52:30] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:52:31] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:03] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:03] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:06] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:06] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list'"}
+[2026-03-31 06:53:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 06:53:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.property_number' in 'field list'"}
+[2026-03-31 07:08:22] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:23] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:28] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:29] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:29] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:30] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:32] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:08:32] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:11] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:11] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:09:12] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:12] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:12] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:56] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:57] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:57] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:57] ERROR: Unable to load officers. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-03-31 07:10:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventory_management_system.divisions' doesn't exist"}
+[2026-04-06 10:18:26] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:26] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:27] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:28] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:28] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:28] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:28] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:28] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:29] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:29] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:29] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:29] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:30] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:30] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:30] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:53] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:53] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:54] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:54] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:55] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:55] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:55] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:55] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:56] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:57] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:57] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:18:57] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:00] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:00] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:30] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:30] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:37] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:37] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:53] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-06 10:19:53] ERROR: Unable to load chart data. {"exception":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.division_name' in 'field list'"}
+[2026-04-07 15:25:21] ERROR: Unable to export report spreadsheet. {"exception":"Call to undefined function App\\Services\\mb_strlen()"}
+[2026-04-07 17:26:28] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY000]: General error: 1553 Cannot drop index 'uniq_par_officer_date': needed in a foreign key constraint"}
+[2026-04-07 17:26:28] ERROR: Unable to load chart data. {"exception":"SQLSTATE[HY000]: General error: 1553 Cannot drop index 'uniq_par_officer_date': needed in a foreign key constraint"}
+[2026-04-08 10:08:45] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:45] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:46] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:47] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:49] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:49] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:49] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:49] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:49] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:08:50] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:05] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:08] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:44] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:44] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:51] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:09:51] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:27] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:27] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:45] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:45] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:50] ERROR: Unable to load inventory items. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:50] ERROR: Unable to load inventory items. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:50] ERROR: Unable to load inventory items. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:51] ERROR: Unable to load inventory items. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:56] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:10:56] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:11:00] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:11:01] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:41] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:41] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:43] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:44] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:45] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:46] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:52] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:53] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:54] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:55] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:57] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:12:58] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:13:28] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:13:28] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:24:51] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:24:51] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:24:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:24:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:24:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:24:59] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:02] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:02] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:05] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:06] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:06] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:06] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:06] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:07] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:08] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:08] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:08] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:09] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:09] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:27] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:25:28] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:26:29] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:26:29] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:26:29] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:26:29] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:26:54] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:26:55] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:27:00] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:27:00] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:03] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:38] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:39] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:41] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:41] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:45] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:29:45] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:34:25] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 10:34:26] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:46:16] ERROR: Unable to load filtered assets. {"exception":"Unable to connect to the database. Update config/database.php or your IMS_DB_* environment variables."}
+[2026-04-08 20:48:00] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:00] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:01] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:01] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:01] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:01] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:02] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:03] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:04] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:05] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:06] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:06] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:21] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:21] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:25] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:26] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:29] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:30] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:54] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:48:54] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:50:10] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:50:10] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:50:10] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:50:10] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:50:15] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}
+[2026-04-08 20:50:15] ERROR: Unable to load filtered assets. {"exception":"SQLSTATE[HY093]: Invalid parameter number"}

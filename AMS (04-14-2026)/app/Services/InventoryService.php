@@ -1,0 +1,936 @@
+<?php
+declare(strict_types=1);
+
+namespace App\Services;
+
+use App\Core\Database;
+use App\Core\ValidationException;
+use App\Support\Logger;
+use PDO;
+use Throwable;
+
+final class InventoryService
+{
+    public const REQUEST_TYPES = ['RSMI', 'OSMI'];
+    public const ITEM_TYPES = self::REQUEST_TYPES;
+    public const UNITS = ['pc', 'box', 'ream', 'roll', 'pack', 'set', 'bottle'];
+    public const STATUS_LABELS = [
+        'LOW' => 'Low Stock',
+        'NEAR' => 'Near Low',
+        'AT_LIMIT' => 'High Stock',
+        'NORMAL' => 'In Stock',
+    ];
+
+    private PDO $db;
+
+    public function __construct(?PDO $connection = null)
+    {
+        $this->db = $connection ?? Database::connection();
+    }
+
+    public function listItems(array $filters = [], int $limit = 250): array
+    {
+        $search = trim((string) ($filters['search'] ?? ''));
+        $requestType = strtoupper(trim((string) ($filters['request_type'] ?? ($filters['item_type'] ?? ''))));
+        $status = strtoupper(trim((string) ($filters['stock_status'] ?? '')));
+        $division = trim((string) ($filters['division'] ?? ''));
+        $officerId = (int) ($filters['officer_id'] ?? 0);
+        $itemId = (int) ($filters['inventory_item_id'] ?? $filters['item_id'] ?? 0);
+        $dateFrom = $this->normalizeIssueDate((string) ($filters['date_from'] ?? ''));
+        $dateTo = $this->normalizeIssueDate((string) ($filters['date_to'] ?? ''));
+
+        $where = [];
+        $params = [];
+
+        if ($search !== '') {
+            $where[] = '(ii.item_code LIKE :search
+                OR ii.ris_number LIKE :search
+                OR ii.stock_number LIKE :search
+                OR ii.item_name LIKE :search
+                OR ii.description LIKE :search
+                OR ao.name LIKE :search)';
+            $params['search'] = '%' . $search . '%';
+        }
+
+        if (in_array($requestType, self::REQUEST_TYPES, true)) {
+            $where[] = 'ii.request_type = :request_type';
+            $params['request_type'] = $requestType;
+        }
+
+        if ($division !== '') {
+            $where[] = 'd.code = :division';
+            $params['division'] = $division;
+        }
+
+        if ($officerId > 0) {
+            $where[] = 'ii.officer_id = :officer_id';
+            $params['officer_id'] = $officerId;
+        }
+
+        if ($itemId > 0) {
+            $where[] = 'ii.inventory_item_id = :inventory_item_id';
+            $params['inventory_item_id'] = $itemId;
+        }
+
+        if ($dateFrom !== '') {
+            $where[] = 'ii.issued_at >= :date_from';
+            $params['date_from'] = $dateFrom;
+        }
+
+        if ($dateTo !== '') {
+            $where[] = 'ii.issued_at <= :date_to';
+            $params['date_to'] = $dateTo;
+        }
+
+        $statement = $this->db->prepare(
+            'SELECT
+                ii.inventory_item_id,
+                ii.item_code,
+                ii.request_type,
+                ii.ris_number,
+                ii.stock_number,
+                ii.item_name,
+                ii.item_type,
+                ii.unit,
+                ii.division_id,
+                ii.officer_id,
+                ii.quantity_issued,
+                ii.current_stock,
+                ii.stock_limit,
+                ii.low_stock_threshold,
+                ii.unit_cost,
+                ii.total_amount,
+                ii.issued_at,
+                ii.description,
+                ii.created_at,
+                ii.updated_at,
+                d.code AS division,
+                d.label AS division_label,
+                ao.name AS officer_name,
+                ao.position AS officer_position,
+                ao.unit AS officer_unit
+             FROM inventory_items ii
+             LEFT JOIN divisions d ON d.division_id = ii.division_id
+             LEFT JOIN accountable_officers ao ON ao.officer_id = ii.officer_id' .
+             ($where === [] ? '' : ' WHERE ' . implode(' AND ', $where)) .
+             ' ORDER BY COALESCE(ii.issued_at, DATE(ii.created_at)) DESC,
+                      ii.updated_at DESC,
+                      ii.inventory_item_id DESC
+               LIMIT ' . (int) $limit
+        );
+        $statement->execute($params);
+
+        $items = array_map(fn (array $row): array => $this->hydrateItem($row), $statement->fetchAll());
+
+        if ($status !== '' && isset(self::STATUS_LABELS[$status])) {
+            $items = array_values(array_filter(
+                $items,
+                static fn (array $item): bool => strtoupper((string) ($item['stock_status_code'] ?? '')) === $status
+            ));
+        }
+
+        return $items;
+    }
+
+    public function preview(array $payload): array
+    {
+        $itemId = (int) ($payload['inventory_item_id'] ?? 0);
+        $existing = $itemId > 0 ? $this->findById($itemId) : null;
+        $issuedAt = $this->normalizeIssueDate((string) ($payload['issued_at'] ?? ''));
+        $itemName = trim((string) ($payload['item_name'] ?? ''));
+        $description = trim((string) ($payload['description'] ?? ''));
+        $quantityIssued = max(0, (int) ($payload['quantity_issued'] ?? 0));
+        $unitCost = $this->normalizeMoney($payload['unit_cost'] ?? 0);
+
+        return [
+            'ris_number' => trim((string) ($existing['ris_number'] ?? '')) !== ''
+                ? (string) $existing['ris_number']
+                : ($issuedAt !== '' ? $this->nextRisNumber($issuedAt, $itemId) : ''),
+            'stock_number' => trim((string) ($existing['stock_number'] ?? '')) !== ''
+                ? (string) $existing['stock_number']
+                : ($itemName !== '' ? $this->resolveStockNumber($itemName, $description, $itemId) : ''),
+            'total_amount' => round($quantityIssued * $unitCost, 2),
+        ];
+    }
+
+    public function add(array $payload): array
+    {
+        $data = $this->validateItemPayload($payload);
+
+        try {
+            $this->db->beginTransaction();
+
+            $statement = $this->db->prepare(
+                'INSERT INTO inventory_items (
+                    item_code,
+                    request_type,
+                    ris_number,
+                    stock_number,
+                    item_name,
+                    item_type,
+                    unit,
+                    division_id,
+                    officer_id,
+                    quantity_issued,
+                    current_stock,
+                    stock_limit,
+                    low_stock_threshold,
+                    unit_cost,
+                    total_amount,
+                    issued_at,
+                    description
+                 ) VALUES (
+                    :item_code,
+                    :request_type,
+                    :ris_number,
+                    :stock_number,
+                    :item_name,
+                    :item_type,
+                    :unit,
+                    :division_id,
+                    :officer_id,
+                    :quantity_issued,
+                    :current_stock,
+                    :stock_limit,
+                    :low_stock_threshold,
+                    :unit_cost,
+                    :total_amount,
+                    :issued_at,
+                    :description
+                 )'
+            );
+            $statement->execute([
+                'item_code' => $this->nextItemCode(),
+                'request_type' => $data['request_type'],
+                'ris_number' => $this->nextRisNumber($data['issued_at']),
+                'stock_number' => $this->resolveStockNumber($data['item_name'], $data['description']),
+                'item_name' => $data['item_name'],
+                'item_type' => $data['request_type'],
+                'unit' => $data['unit'],
+                'division_id' => $data['division_id'],
+                'officer_id' => $data['officer_id'],
+                'quantity_issued' => $data['quantity_issued'],
+                'current_stock' => $data['quantity_issued'],
+                'stock_limit' => $data['stock_limit'],
+                'low_stock_threshold' => $data['stock_limit'],
+                'unit_cost' => $data['unit_cost'],
+                'total_amount' => $data['total_amount'],
+                'issued_at' => $data['issued_at'],
+                'description' => $data['description'],
+            ]);
+
+            $itemId = (int) $this->db->lastInsertId();
+            $item = $this->findById($itemId);
+
+            if ($item === null) {
+                throw new ValidationException('Unable to load the saved inventory record.');
+            }
+
+            $this->recordMovement(
+                $itemId,
+                'INITIAL',
+                $data['quantity_issued'],
+                0,
+                $data['quantity_issued'],
+                sprintf(
+                    '%s issuance saved under RIS %s.',
+                    $data['request_type'],
+                    (string) ($item['ris_number'] ?? '')
+                )
+            );
+
+            $this->db->commit();
+
+            return $this->findById($itemId) ?? $item;
+        } catch (Throwable $throwable) {
+            if ($this->db->inTransaction()) {
+                $this->db->rollBack();
+            }
+
+            Logger::error('Unable to save inventory item.', [
+                'exception' => $throwable->getMessage(),
+                'payload' => $payload,
+            ]);
+
+            throw $throwable;
+        }
+    }
+
+    public function update(int $itemId, array $payload): array
+    {
+        $existing = $this->findById($itemId);
+
+        if ($existing === null) {
+            throw new ValidationException('The selected inventory item could not be found.', [
+                'inventory_item_id' => 'Choose a valid inventory item.',
+            ]);
+        }
+
+        $data = $this->validateItemPayload($payload);
+
+        if (!$this->hasItemChanges($existing, $data)) {
+            throw new ValidationException('No changes were made to this inventory item.', [
+                'inventory_item_id' => 'Update at least one field before saving.',
+            ]);
+        }
+
+        $statement = $this->db->prepare(
+            'UPDATE inventory_items
+             SET request_type = :request_type,
+                 ris_number = :ris_number,
+                 stock_number = :stock_number,
+                 item_name = :item_name,
+                 item_type = :item_type,
+                 unit = :unit,
+                 division_id = :division_id,
+                 officer_id = :officer_id,
+                 quantity_issued = :quantity_issued,
+                 stock_limit = :stock_limit,
+                 low_stock_threshold = :low_stock_threshold,
+                 unit_cost = :unit_cost,
+                 total_amount = :total_amount,
+                 issued_at = :issued_at,
+                 description = :description
+             WHERE inventory_item_id = :inventory_item_id'
+        );
+        $statement->execute([
+            'request_type' => $data['request_type'],
+            'ris_number' => trim((string) ($existing['ris_number'] ?? '')) !== ''
+                ? (string) $existing['ris_number']
+                : $this->nextRisNumber($data['issued_at'], $itemId),
+            'stock_number' => trim((string) ($existing['stock_number'] ?? '')) !== ''
+                ? (string) $existing['stock_number']
+                : $this->resolveStockNumber($data['item_name'], $data['description'], $itemId),
+            'item_name' => $data['item_name'],
+            'item_type' => $data['request_type'],
+            'unit' => $data['unit'],
+            'division_id' => $data['division_id'],
+            'officer_id' => $data['officer_id'],
+            'quantity_issued' => $data['quantity_issued'],
+            'stock_limit' => $data['stock_limit'],
+            'low_stock_threshold' => $data['stock_limit'],
+            'unit_cost' => $data['unit_cost'],
+            'total_amount' => $data['total_amount'],
+            'issued_at' => $data['issued_at'],
+            'description' => $data['description'],
+            'inventory_item_id' => $itemId,
+        ]);
+
+        return $this->findById($itemId) ?? $existing;
+    }
+
+    public function delete(int $itemId): array
+    {
+        $item = $this->findById($itemId);
+
+        if ($item === null) {
+            throw new ValidationException('The selected inventory item could not be found.', [
+                'inventory_item_id' => 'Choose a valid inventory item.',
+            ]);
+        }
+
+        $statement = $this->db->prepare(
+            'DELETE FROM inventory_items
+             WHERE inventory_item_id = :inventory_item_id'
+        );
+        $statement->execute([
+            'inventory_item_id' => $itemId,
+        ]);
+
+        return $item;
+    }
+
+    public function adjustStock(int $itemId, array $payload): array
+    {
+        $item = $this->findById($itemId);
+
+        if ($item === null) {
+            throw new ValidationException('The selected inventory item could not be found.', [
+                'inventory_item_id' => 'Choose a valid inventory item.',
+            ]);
+        }
+
+        $movementType = strtoupper(trim((string) ($payload['movement_type'] ?? '')));
+        $quantity = (int) ($payload['quantity'] ?? 0);
+        $notes = trim((string) ($payload['notes'] ?? ''));
+        $errors = [];
+
+        if (!in_array($movementType, ['ADD', 'DEDUCT'], true)) {
+            $errors['movement_type'] = 'Choose a valid stock action.';
+        }
+
+        if ($quantity <= 0) {
+            $errors['quantity'] = 'Quantity must be at least 1.';
+        }
+
+        $currentStock = (int) ($item['current_stock'] ?? 0);
+        $newStock = $movementType === 'DEDUCT'
+            ? $currentStock - $quantity
+            : $currentStock + $quantity;
+
+        if ($movementType === 'DEDUCT' && $newStock < 0) {
+            $errors['quantity'] = 'Stock deduction cannot reduce the balance below zero.';
+        }
+
+        if ($errors !== []) {
+            throw new ValidationException('Please review the stock movement.', $errors);
+        }
+
+        try {
+            $this->db->beginTransaction();
+
+            $update = $this->db->prepare(
+                'UPDATE inventory_items
+                 SET current_stock = :current_stock
+                 WHERE inventory_item_id = :inventory_item_id'
+            );
+            $update->execute([
+                'current_stock' => $newStock,
+                'inventory_item_id' => $itemId,
+            ]);
+
+            $this->recordMovement(
+                $itemId,
+                $movementType,
+                $quantity,
+                $currentStock,
+                $newStock,
+                $notes
+            );
+
+            $this->db->commit();
+
+            return $this->findById($itemId) ?? $item;
+        } catch (Throwable $throwable) {
+            if ($this->db->inTransaction()) {
+                $this->db->rollBack();
+            }
+
+            Logger::error('Unable to adjust inventory stock.', [
+                'inventory_item_id' => $itemId,
+                'exception' => $throwable->getMessage(),
+                'payload' => $payload,
+            ]);
+
+            throw $throwable;
+        }
+    }
+
+    public function findById(int $itemId): ?array
+    {
+        if ($itemId <= 0) {
+            return null;
+        }
+
+        $statement = $this->db->prepare(
+            'SELECT
+                ii.inventory_item_id,
+                ii.item_code,
+                ii.request_type,
+                ii.ris_number,
+                ii.stock_number,
+                ii.item_name,
+                ii.item_type,
+                ii.unit,
+                ii.division_id,
+                ii.officer_id,
+                ii.quantity_issued,
+                ii.current_stock,
+                ii.stock_limit,
+                ii.low_stock_threshold,
+                ii.unit_cost,
+                ii.total_amount,
+                ii.issued_at,
+                ii.description,
+                ii.created_at,
+                ii.updated_at,
+                d.code AS division,
+                d.label AS division_label,
+                ao.name AS officer_name,
+                ao.position AS officer_position,
+                ao.unit AS officer_unit
+             FROM inventory_items ii
+             LEFT JOIN divisions d ON d.division_id = ii.division_id
+             LEFT JOIN accountable_officers ao ON ao.officer_id = ii.officer_id
+             WHERE ii.inventory_item_id = :inventory_item_id
+             LIMIT 1'
+        );
+        $statement->execute([
+            'inventory_item_id' => $itemId,
+        ]);
+
+        $item = $statement->fetch();
+
+        return $item ? $this->hydrateItem($item) : null;
+    }
+
+    public function details(int $itemId): array
+    {
+        $item = $this->findById($itemId);
+
+        if ($item === null) {
+            throw new ValidationException('The selected inventory item could not be found.', [
+                'inventory_item_id' => 'Choose a valid inventory item.',
+            ]);
+        }
+
+        return [
+            'item' => $item,
+            'movements' => $this->listMovements($itemId),
+        ];
+    }
+
+    public function listMovements(int $itemId, int $limit = 40): array
+    {
+        $statement = $this->db->prepare(
+            'SELECT
+                movement_id,
+                inventory_item_id,
+                movement_type,
+                quantity,
+                previous_stock,
+                current_stock,
+                notes,
+                created_at
+             FROM inventory_movements
+             WHERE inventory_item_id = :inventory_item_id
+             ORDER BY created_at DESC, movement_id DESC
+             LIMIT ' . (int) $limit
+        );
+        $statement->execute([
+            'inventory_item_id' => $itemId,
+        ]);
+
+        return $statement->fetchAll();
+    }
+
+    public function dashboardSummary(int $limit = 8): array
+    {
+        $items = $this->listItems([], 500);
+        $watchlist = array_values(array_filter(
+            $items,
+            static fn (array $item): bool => in_array((string) ($item['stock_status_code'] ?? ''), ['LOW', 'NEAR'], true)
+        ));
+
+        usort($watchlist, static function (array $left, array $right): int {
+            $priority = ['LOW' => 0, 'NEAR' => 1, 'NORMAL' => 2, 'AT_LIMIT' => 3];
+            $leftPriority = $priority[(string) ($left['stock_status_code'] ?? 'NORMAL')] ?? 9;
+            $rightPriority = $priority[(string) ($right['stock_status_code'] ?? 'NORMAL')] ?? 9;
+
+            if ($leftPriority !== $rightPriority) {
+                return $leftPriority <=> $rightPriority;
+            }
+
+            return ((int) ($left['current_stock'] ?? 0)) <=> ((int) ($right['current_stock'] ?? 0));
+        });
+
+        $sortedAscending = $items;
+        usort($sortedAscending, static function (array $left, array $right): int {
+            return ((int) ($left['current_stock'] ?? 0)) <=> ((int) ($right['current_stock'] ?? 0));
+        });
+        $sortedDescending = array_reverse($sortedAscending);
+        $graphItems = [];
+        $seenGraphIds = [];
+
+        foreach (array_merge(array_slice($sortedAscending, 0, 5), array_slice($sortedDescending, 0, 5)) as $graphItem) {
+            $graphId = (int) ($graphItem['inventory_item_id'] ?? 0);
+
+            if ($graphId <= 0 || isset($seenGraphIds[$graphId])) {
+                continue;
+            }
+
+            $seenGraphIds[$graphId] = true;
+            $graphItems[] = $graphItem;
+        }
+
+        usort($graphItems, static function (array $left, array $right): int {
+            return ((int) ($left['current_stock'] ?? 0)) <=> ((int) ($right['current_stock'] ?? 0));
+        });
+
+        return [
+            'total_items' => count($items),
+            'low_stock_count' => count(array_filter($items, static fn (array $item): bool => ($item['stock_status_code'] ?? '') === 'LOW')),
+            'near_low_count' => count(array_filter($items, static fn (array $item): bool => ($item['stock_status_code'] ?? '') === 'NEAR')),
+            'at_limit_count' => count(array_filter($items, static fn (array $item): bool => ($item['stock_status_code'] ?? '') === 'AT_LIMIT')),
+            'high_stock_count' => count(array_filter($items, static fn (array $item): bool => ($item['stock_status_code'] ?? '') === 'AT_LIMIT')),
+            'watchlist' => array_slice($watchlist, 0, $limit),
+            'graph' => [
+                'labels' => array_map(static fn (array $item): string => (string) ($item['item_name'] ?? 'Item'), $graphItems),
+                'stocks' => array_map(static fn (array $item): int => (int) ($item['current_stock'] ?? 0), $graphItems),
+                'limits' => array_map(static fn (array $item): int => (int) ($item['stock_limit'] ?? 0), $graphItems),
+                'status_codes' => array_map(static fn (array $item): string => (string) ($item['stock_status_code'] ?? 'NORMAL'), $graphItems),
+            ],
+        ];
+    }
+
+    public function getFilterOptions(): array
+    {
+        return [
+            'request_types' => self::REQUEST_TYPES,
+            'item_types' => self::REQUEST_TYPES,
+            'stock_statuses' => self::STATUS_LABELS,
+            'units' => self::UNITS,
+        ];
+    }
+
+    private function validateItemPayload(array $payload): array
+    {
+        $requestType = strtoupper(trim((string) ($payload['request_type'] ?? '')));
+        $division = strtoupper(trim((string) ($payload['division'] ?? '')));
+        $officerId = (int) ($payload['officer_id'] ?? 0);
+        $itemName = trim((string) ($payload['item_name'] ?? ''));
+        $unit = trim((string) ($payload['unit'] ?? ''));
+        $quantityIssued = (int) ($payload['quantity_issued'] ?? 0);
+        $stockLimit = (int) ($payload['stock_limit'] ?? 0);
+        $unitCost = $this->normalizeMoney($payload['unit_cost'] ?? 0);
+        $issuedAtRaw = trim((string) ($payload['issued_at'] ?? ''));
+        $issuedAt = $this->normalizeIssueDate($issuedAtRaw);
+        $description = trim((string) ($payload['description'] ?? ''));
+        $errors = [];
+
+        if (!in_array($requestType, self::REQUEST_TYPES, true)) {
+            $errors['request_type'] = 'Choose either RSMI or OSMI.';
+        }
+
+        if ($division === '') {
+            $errors['division'] = 'Choose a responsibility center code.';
+        }
+
+        $divisionId = $division !== '' ? $this->findDivisionIdByCode($division) : null;
+
+        if ($division !== '' && $divisionId === null) {
+            $errors['division'] = 'Choose a valid responsibility center code.';
+        }
+
+        $officer = $officerId > 0 ? $this->findOfficerSnapshot($officerId) : null;
+
+        if ($officerId <= 0) {
+            $errors['officer_id'] = 'Choose an accountable officer.';
+        } elseif ($officer === null) {
+            $errors['officer_id'] = 'Choose a valid accountable officer.';
+        } elseif ($division !== '' && strtoupper(trim((string) ($officer['division'] ?? ''))) !== $division) {
+            $errors['officer_id'] = 'Choose an officer under the selected responsibility center code.';
+        }
+
+        if ($itemName === '') {
+            $errors['item_name'] = 'Item name is required.';
+        }
+
+        if ($unit === '') {
+            $errors['unit'] = 'Unit is required.';
+        }
+
+        if ($quantityIssued <= 0) {
+            $errors['quantity_issued'] = 'Quantity issued must be at least 1.';
+        }
+
+        if ($stockLimit <= 0) {
+            $errors['stock_limit'] = 'Set a stock limit greater than zero.';
+        }
+
+        if ($unitCost < 0) {
+            $errors['unit_cost'] = 'Unit cost cannot be negative.';
+        }
+
+        if ($issuedAtRaw === '') {
+            $errors['issued_at'] = 'Date is required.';
+        } elseif ($issuedAt === '') {
+            $errors['issued_at'] = 'Enter a valid date.';
+        }
+
+        if ($errors !== []) {
+            throw new ValidationException('Please review the inventory form.', $errors);
+        }
+
+        return [
+            'request_type' => $requestType,
+            'division' => $division,
+            'division_id' => (int) $divisionId,
+            'officer_id' => $officerId,
+            'item_name' => $itemName,
+            'unit' => $unit,
+            'quantity_issued' => $quantityIssued,
+            'stock_limit' => $stockLimit,
+            'unit_cost' => $unitCost,
+            'total_amount' => round($quantityIssued * $unitCost, 2),
+            'issued_at' => $issuedAt,
+            'description' => $description,
+        ];
+    }
+
+    private function hasItemChanges(array $existing, array $data): bool
+    {
+        return strtoupper(trim((string) ($existing['request_type'] ?? ''))) !== $data['request_type']
+            || strtoupper(trim((string) ($existing['division'] ?? ''))) !== $data['division']
+            || (int) ($existing['officer_id'] ?? 0) !== $data['officer_id']
+            || trim((string) ($existing['item_name'] ?? '')) !== $data['item_name']
+            || trim((string) ($existing['unit'] ?? '')) !== $data['unit']
+            || (int) ($existing['quantity_issued'] ?? 0) !== $data['quantity_issued']
+            || (int) ($existing['stock_limit'] ?? 0) !== $data['stock_limit']
+            || round((float) ($existing['unit_cost'] ?? 0), 2) !== round($data['unit_cost'], 2)
+            || trim((string) ($existing['issued_at'] ?? '')) !== $data['issued_at']
+            || trim((string) ($existing['description'] ?? '')) !== $data['description'];
+    }
+
+    private function nextItemCode(): string
+    {
+        $year = date('Y');
+        $prefix = 'INV-' . $year . '-';
+        $statement = $this->db->prepare(
+            'SELECT item_code
+             FROM inventory_items
+             WHERE item_code LIKE :prefix
+             ORDER BY item_code DESC
+             LIMIT 1'
+        );
+        $statement->execute([
+            'prefix' => $prefix . '%',
+        ]);
+
+        $lastCode = (string) $statement->fetchColumn();
+        $sequence = 1;
+
+        if (preg_match('/-(\d{3})$/', $lastCode, $matches) === 1) {
+            $sequence = ((int) $matches[1]) + 1;
+        }
+
+        return sprintf('%s%03d', $prefix, $sequence);
+    }
+
+    private function nextRisNumber(string $issuedAt, int $excludeItemId = 0): string
+    {
+        $date = strtotime($issuedAt) ?: time();
+        $prefix = date('Y-m-', $date);
+        $statement = $this->db->prepare(
+            'SELECT ris_number
+             FROM inventory_items
+             WHERE ris_number LIKE :prefix
+               AND inventory_item_id <> :inventory_item_id
+             ORDER BY ris_number DESC
+             LIMIT 1'
+        );
+        $statement->execute([
+            'prefix' => $prefix . '%',
+            'inventory_item_id' => $excludeItemId,
+        ]);
+
+        $lastNumber = (string) $statement->fetchColumn();
+        $sequence = 1;
+
+        if (preg_match('/-(\d{3})$/', $lastNumber, $matches) === 1) {
+            $sequence = ((int) $matches[1]) + 1;
+        }
+
+        return sprintf('%s%03d', $prefix, $sequence);
+    }
+
+    private function resolveStockNumber(string $itemName, string $description, int $excludeItemId = 0): string
+    {
+        $normalizedName = $this->normalizeDescriptor($itemName);
+        $normalizedDescription = $this->normalizeDescriptor($description);
+
+        if ($normalizedName !== '') {
+            $statement = $this->db->query(
+                'SELECT inventory_item_id, item_name, description, stock_number
+                 FROM inventory_items
+                 WHERE stock_number IS NOT NULL
+                   AND stock_number <> ""
+                 ORDER BY inventory_item_id ASC'
+            );
+
+            foreach ($statement->fetchAll() as $row) {
+                if ((int) ($row['inventory_item_id'] ?? 0) === $excludeItemId) {
+                    continue;
+                }
+
+                if ($this->normalizeDescriptor((string) ($row['item_name'] ?? '')) === $normalizedName
+                    && $this->normalizeDescriptor((string) ($row['description'] ?? '')) === $normalizedDescription) {
+                    return (string) $row['stock_number'];
+                }
+            }
+        }
+
+        $statement = $this->db->query(
+            'SELECT stock_number
+             FROM inventory_items
+             WHERE stock_number LIKE "C-%-"
+             ORDER BY stock_number DESC
+             LIMIT 1'
+        );
+        $lastNumber = (string) $statement->fetchColumn();
+        $sequence = 1;
+
+        if (preg_match('/^C-(\d{3})-$/', $lastNumber, $matches) === 1) {
+            $sequence = ((int) $matches[1]) + 1;
+        }
+
+        return sprintf('C-%03d-', $sequence);
+    }
+
+    private function findDivisionIdByCode(string $division): ?int
+    {
+        $statement = $this->db->prepare(
+            'SELECT division_id
+             FROM divisions
+             WHERE code = :code
+             LIMIT 1'
+        );
+        $statement->execute([
+            'code' => strtoupper(trim($division)),
+        ]);
+
+        $divisionId = $statement->fetchColumn();
+
+        return $divisionId === false ? null : (int) $divisionId;
+    }
+
+    private function findOfficerSnapshot(int $officerId): ?array
+    {
+        $statement = $this->db->prepare(
+            'SELECT
+                ao.officer_id,
+                ao.name,
+                ao.position,
+                ao.unit,
+                d.code AS division,
+                d.label AS division_label
+             FROM accountable_officers ao
+             INNER JOIN divisions d ON d.division_id = ao.division_id
+             WHERE ao.officer_id = :officer_id
+             LIMIT 1'
+        );
+        $statement->execute([
+            'officer_id' => $officerId,
+        ]);
+
+        $officer = $statement->fetch();
+
+        return $officer ?: null;
+    }
+
+    private function recordMovement(
+        int $itemId,
+        string $movementType,
+        int $quantity,
+        int $previousStock,
+        int $currentStock,
+        string $notes
+    ): void {
+        $statement = $this->db->prepare(
+            'INSERT INTO inventory_movements (
+                inventory_item_id,
+                movement_type,
+                quantity,
+                previous_stock,
+                current_stock,
+                notes
+             ) VALUES (
+                :inventory_item_id,
+                :movement_type,
+                :quantity,
+                :previous_stock,
+                :current_stock,
+                :notes
+             )'
+        );
+        $statement->execute([
+            'inventory_item_id' => $itemId,
+            'movement_type' => $movementType,
+            'quantity' => $quantity,
+            'previous_stock' => $previousStock,
+            'current_stock' => $currentStock,
+            'notes' => $notes,
+        ]);
+    }
+
+    private function hydrateItem(array $item): array
+    {
+        $currentStock = (int) ($item['current_stock'] ?? 0);
+        $stockLimit = (int) ($item['stock_limit'] ?? 0);
+        $lowThreshold = (int) ($item['low_stock_threshold'] ?? 0);
+        $statusCode = $this->statusCode($currentStock, $lowThreshold, $stockLimit);
+        $statusLabel = self::STATUS_LABELS[$statusCode] ?? self::STATUS_LABELS['NORMAL'];
+
+        $item['request_type'] = strtoupper(trim((string) ($item['request_type'] ?? ''))) ?: 'RSMI';
+        $item['quantity_issued'] = (int) ($item['quantity_issued'] ?? 0);
+        $item['current_stock'] = $currentStock;
+        $item['stock_limit'] = $stockLimit;
+        $item['low_stock_threshold'] = $lowThreshold > 0 ? $lowThreshold : $stockLimit;
+        $item['unit_cost'] = round((float) ($item['unit_cost'] ?? 0), 2);
+        $item['total_amount'] = round((float) ($item['total_amount'] ?? 0), 2);
+        $item['division'] = trim((string) ($item['division'] ?? ''));
+        $item['division_label'] = trim((string) ($item['division_label'] ?? ''));
+        $item['officer_name'] = trim((string) ($item['officer_name'] ?? ''));
+        $item['officer_position'] = trim((string) ($item['officer_position'] ?? ''));
+        $item['officer_unit'] = trim((string) ($item['officer_unit'] ?? ''));
+        $item['stock_status_code'] = $statusCode;
+        $item['stock_status_label'] = $statusLabel;
+        $item['stock_remark'] = match ($statusCode) {
+            'LOW' => 'Stock is already at or below the alert level.',
+            'NEAR' => 'Stock is nearing the alert level.',
+            'AT_LIMIT' => 'Stock is well above the alert level.',
+            default => 'Stock level is within the working range.',
+        };
+
+        return $item;
+    }
+
+    private function statusCode(int $currentStock, int $lowThreshold, int $stockLimit): string
+    {
+        $alertThreshold = max($stockLimit, $lowThreshold);
+
+        if ($alertThreshold <= 0) {
+            return $currentStock <= 0 ? 'LOW' : 'NORMAL';
+        }
+
+        if ($currentStock <= $alertThreshold) {
+            return 'LOW';
+        }
+
+        $nearThreshold = $alertThreshold + max(2, (int) ceil(max($alertThreshold, 4) * 0.25));
+
+        if ($currentStock <= $nearThreshold) {
+            return 'NEAR';
+        }
+
+        $highThreshold = max($nearThreshold + 1, ($alertThreshold * 2), $alertThreshold + 5);
+
+        if ($currentStock >= $highThreshold) {
+            return 'AT_LIMIT';
+        }
+
+        return 'NORMAL';
+    }
+
+    private function normalizeIssueDate(string $value): string
+    {
+        $normalized = trim($value);
+
+        if ($normalized === '') {
+            return '';
+        }
+
+        $timestamp = strtotime($normalized);
+
+        if ($timestamp === false) {
+            return '';
+        }
+
+        return date('Y-m-d', $timestamp);
+    }
+
+    private function normalizeMoney(mixed $value): float
+    {
+        if (is_string($value)) {
+            $value = str_replace([',', ' '], '', $value);
+        }
+
+        return round((float) $value, 2);
+    }
+
+    private function normalizeDescriptor(string $value): string
+    {
+        $normalized = strtolower(trim($value));
+        return preg_replace('/\s+/', ' ', $normalized) ?? $normalized;
+    }
+}
